@@ -48,7 +48,7 @@ module Net
     end
 
     def rbuf_fill
-      timeout(@read_timeout) {
+      Timeout.timeout(@read_timeout) {
         @rbuf << @io.sysread(@@socket_read_size)
       }
     end
